@@ -1,0 +1,32 @@
+<div class="page-main-search">
+  <div class="search-container" >
+      <form id="searchForm" novalidate #searchVideoForm="ngForm" (ngSubmit)="search()">
+          <div class="search-input-wrapper is-req">
+              <label for="videoSearchName">*Movie Title</label>
+              <input type="text" name="videoSearchName" id="videoSearchName" required minlength="2" [(ngModel)]="video.title" #videoSearchNameVar="ngModel" aria-describedby="error-1"
+              (blur)="onBlur($event)" (focus)="onFocus($event)" autocomplete="off"
+              [ngClass]="{'is-error': (videoSearchNameVar.touched || videoSearchNameVar.dirty) && videoSearchNameVar.errors }"
+              >
+
+              <span class="search-error" id="error-1" *ngIf="(videoSearchNameVar.touched || videoSearchNameVar.dirty) && videoSearchNameVar.errors?.required">
+                Movie Name is required
+              </span>
+
+              <span class="search-error" id="error-1" *ngIf="(videoSearchNameVar.touched || videoSearchNameVar.dirty) && videoSearchNameVar.errors?.minlength">
+                Movie Name must be at least 2 characters
+              </span>
+          </div>
+          <div class="search-input-wrapper">
+              <label for="videoSearchYear">Movie Year</label>
+              <input type="text" name="videoSearchYear" id="videoSearchYear" pattern="^(19|20)\d{2}$" aria-describedby="error-2" [(ngModel)]="video.year"
+              #videoSearchYear="ngModel" (blur)="onBlur($event)" (focus)="onFocus($event)" autocomplete="off" />
+              <span class="search-error" id="error-2" *ngIf="(videoSearchYear.touched || videoSearchYear.dirty) && videoSearchYear.errors?.pattern">
+                Please type a valid year
+              </span>
+          </div>
+          <div class="search-btn-wrapper">
+              <button type="submit" class="search-btn" [disabled]="searchVideoForm?.invalid">Search <span></span></button>
+          </div>
+      </form>
+  </div>
+</div>

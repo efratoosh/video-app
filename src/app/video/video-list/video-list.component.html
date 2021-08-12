@@ -1,0 +1,29 @@
+
+<va-video-search (searchedVideo)="handleSerachedVideo($event, true)"></va-video-search>
+
+<div class="page-main-results ">
+  <div class="results-message" [innerHtml] ="message"></div>
+  <div class="">
+      <ul class="card-list" *ngIf="videoList">
+          <li class="col-5" *ngFor="let video of videoList">
+            <a class="card-item" href="https://www.imdb.com/title/{{video.imdbID}}" target="_blank">
+                <figure class="card-item-img">
+                    <img src={{video.Poster}} loading="lazy" alt="" />
+                </figure>
+                <div class="card-item-content">
+                    <h3>{{video.Title}}</h3>
+                    <div>
+                      <span>{{video.Year}}</span>
+                      <span><span class="line">IMDb</span>></span>
+                    </div>
+                </div>
+            </a>
+        </li>
+      </ul>
+  </div>
+  <div>
+    <va-pager [pageData]="pageDataForPager" (selectedPage)="onPageSelect($event)" *ngIf="pageData.totalResults > 10 && !noResults"></va-pager>
+  </div>
+
+  <va-loader *ngIf="loading"></va-loader>
+</div>

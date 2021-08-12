@@ -1,0 +1,14 @@
+<div class="pager">
+    <ng-container *ngIf="totalBtns > 3">
+      <button type="button" (click)="goToFirst()" [disabled]="isFirst()"> << </button>
+      <button type="button" (click)="goToPrev()" [disabled]="isFirst()"> < </button>
+    </ng-container>
+
+    <button type="button" (click)="handlePagerClick(page)" [ngClass]="{'active' : page === pageData.currentPage}"
+      [disabled]="page === pageData.currentPage" *ngFor="let page of pagerList">{{page}}</button>
+
+    <ng-container *ngIf="totalBtns > 3">
+      <button type="button" (click)="goToNext()" [disabled]="isLast()"> > </button>
+      <button type="button" (click)="goToLast()" [disabled]="isLast()"> >> </button>
+    </ng-container>
+</div>

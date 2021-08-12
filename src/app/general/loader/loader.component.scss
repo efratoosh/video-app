@@ -1,0 +1,17 @@
+.loader{display: inline-flex;position:fixed;font-size:120px;justify-content:center;align-items:center;margin:auto;background:rgba(255, 255, 255, 0.85);top: 0;right: 0; bottom: 0; left: 0;
+  &:before{ content:"";border:2px solid #b1b1b1;border-left-color:#5a5a5a;transform:translateZ(0);animation:spinner 1.1s linear infinite;width:1em;height:1em;border-radius:50%;margin:auto}
+  img{position:absolute;width:0.5em;height: auto;}
+
+  // &.active{display:inline-flex;}
+}
+
+@keyframes spinner{
+    0%{transform:rotate(0deg)}
+    to{transform:rotate(1turn)}
+}
+
+@keyframes loading-opacity{
+0%,to{opacity:1}
+25%,75%{opacity:.6}
+50%{opacity:.3}
+}

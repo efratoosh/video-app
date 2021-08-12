@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../src/assets/styles/_variables.scss';
+
+html, body, h1, h2, input, button, label, figure, ul, h3, select{margin:0;padding:0; box-sizing: border-box;vertical-align: baseline;font-size: 100%;border: 0 none;font:inherit;}
+input, select{-webkit-appearance: none;color:inherit}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3NjggNzY4Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTY5LjM3NiAzMTAuNjI0bDE5MiAxOTJjMTIuNTEyIDEyLjUxMiAzMi43NjggMTIuNTEyIDQ1LjI0OCAwbDE5Mi0xOTJjMTIuNTEyLTEyLjUxMiAxMi41MTItMzIuNzY4IDAtNDUuMjQ4cy0zMi43NjgtMTIuNTEyLTQ1LjI0OCAwbC0xNjkuMzc2IDE2OS4zNzYtMTY5LjM3Ni0xNjkuMzc2Yy0xMi41MTItMTIuNTEyLTMyLjc2OC0xMi41MTItNDUuMjQ4IDBzLTEyLjUxMiAzMi43NjggMCA0NS4yNDh6Ii8+PC9zdmc+');
+  background-size:1.2em 1.2em;
+  background-position: right center;
+  background-repeat:no-repeat;
+  padding-right:2em;
+  }
+
+  select::-ms-expand{ display: none;}
+
+html {font-size: 62.5%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;-webkit-overflow-scrolling: touch;text-rendering: optimizeLegibility !important;-webkit-font-smoothing: antialiased !important;overflow-x: hidden;width: 100%;}
+body{font-size: 1.8rem;color:#000;direction:ltr; text-align: left;font-family: 'Rubik',Arial, sans-serif;overflow-x: hidden;width: 100%;}
+
+img{vertical-align: bottom;max-width: 100%;height: auto;}
+
+a[href]:focus,
+input:not([disabled]):focus,
+[tabindex]:focus,
+[contentEditable=true]:focus,
+select:not([disabled]):focus,
+textarea:not([disabled]):focus,
+button:not([disabled]):focus,
+iframe:focus,
+embed:focus,
+object:focus {
+    outline: none !important;
+}
+
+
+.base-width{max-width: 1500px; padding-right: 20px; padding-left:20px;margin-left:auto;margin-right:auto;
+    @media screen and (max-width:1200px){
+        padding-right:0;padding-left:0;max-width:94%;
+    }
+}
+
+.col-5{
+
+    @media screen and (min-width:1200px){
+        width:18%;
+        &:nth-child(n+6) {margin-top: 2em;}
+        &:not(:nth-child(5n)){margin-right:2%}
+    }
+
+    @media screen and (min-width:992px) and (max-width:1200px){
+        width:23.5%;
+        &:nth-child(n+5) {margin-top: 2em;}
+        &:not(:nth-child(4n)){margin-right:2%}
+    }
+
+    @media screen and (min-width:576px) and (max-width:992px){
+        width:48%;
+        &:nth-child(n+3) {margin-top: 2em;}
+        &:not(:nth-child(2n)){margin-right:4%}
+    }
+
+    @media screen and (max-width:576px){
+        width:100%;
+        &:nth-child(n+2) {margin-top: 2em;}
+        &:not(:nth-child(2n)){margin-right:0}
+    }
+
+}
+
+h1, .h1{font-size: 5rem;color:$blue}
+h2, .h2{font-size: 3rem;color:$blue;}
+h3, .h3{font-size: 2rem;color:$blue;font-weight: bold;}
+
+.page{
+    &-main{flex-grow: 1;min-height: 1px;position: relative;
+        >div{padding-top:40px; padding-bottom: 40px;}
+    }
+}
