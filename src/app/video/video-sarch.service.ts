@@ -10,10 +10,9 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class VideoSarchService {
 
-  constructor(private http: HttpClient,) { }
+  constructor(private http: HttpClient) { }
 
   getVideos(videoData, page = 1 ): Observable<IVideo[]> {
-    //console.log("service", videoData)
     let url =`http://www.omdbapi.com/?s=${videoData.title}&page=${page}&y=${videoData.year}&type=movie&apikey=157f34ed`;
     return this.http.get<IVideo[]>(url).pipe(
       catchError(this.handleError<IVideo[]>('getVideos', []))

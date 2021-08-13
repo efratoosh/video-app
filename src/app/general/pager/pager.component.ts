@@ -67,7 +67,6 @@ export class PagerComponent {
   }
 
   goToLast(): void{
-    console.log("total btns ", this.totalBtns)
     this.handlePagerClick(this.totalBtns);
   }
 
